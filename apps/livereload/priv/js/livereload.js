@@ -12,6 +12,7 @@ class LiveReload{
         args.path = args.path
         args.exts = args.exts || "*"
 
+        args.tryLimit = 20
         args.startTimeout = args.startTimeout || 1000
         args.retryTimeout = args.retryTimeout || 300
         args.testUrl = args.testUrl || document.href
@@ -42,12 +43,18 @@ class LiveReload{
             xmlHttp.send(null);
         }
 
-        function pageReload(){
+        function pageReload(max){
+
+            if(max == 0){
+                console.error("Live Reload: reload limit found")
+                return
+            }
+
             checkServerIsUp(() => {
                 location.reload()
             }, () => {
                 setTimeout(() => {
-                    pageReload()
+                    pageReload(max-1)
                 }, args.retryTimeout)
             })
         }
@@ -67,7 +74,7 @@ class LiveReload{
             if (eventKey === "reload") {
                 liveReload.close()
                 setTimeout(() => {
-                    pageReload()
+                    pageReload(args.tryLimit)
                 }, args.startTimeout)
             } else if (eventKey === "log") {
                 let level = data.level
