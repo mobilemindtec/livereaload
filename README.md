@@ -17,7 +17,7 @@ Start
 Monitore files
 ==============
 
-** Add on page
+Add on page
 
     <script type="text/javascript" src="http://localhost:10101/js/livereload.js"></script>
     <script type="text/javascript">
@@ -27,7 +27,7 @@ Monitore files
     </script>
     
 
-** LiveReload args
+LiveReload args
 
     port: `optional`, default `10101`
     path: `required`
