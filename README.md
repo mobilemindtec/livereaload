@@ -29,10 +29,10 @@ Add on page
 
 LiveReload args
 
-    port: `optional`, default `10101`
-    path: `required`
-    exts: `optional`, default `*`
-    startTimeout: `optional`, default `1000` - First try after reaload event
-    retryTimeout: `optional`, default `300` - Next try after reload event
-    tryLimit: `optional`, default `20` - Reload try limit before stop
-    testUrl: `optional`, default `document.href`
+    port: optional, default 10101
+    path: required
+    exts: optional, default *
+    startTimeout: optional, default 1000 - First try after reaload event
+    retryTimeout: optional, default 300 - Next try after reload event
+    tryLimit: optional, default 20 - Reload try limit before stop
+    testUrl: optional, default document.href
