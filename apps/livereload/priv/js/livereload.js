@@ -9,8 +9,9 @@ class LiveReload{
 
         args = args || {}
         args.port = args.port || 10101
-        args.path = args.path
+        args.paths = args.paths
         args.exts = args.exts || "*"
+        args.debug = !!args.debug
 
         args.tryLimit = 20
         args.startTimeout = args.startTimeout || 1000
@@ -18,15 +19,16 @@ class LiveReload{
         args.testUrl = args.testUrl || document.href
 
 
-        if(!args.path || args.path == ""){
-            console.error("Live Reload: invalid path. can't start monitor")
+        if(!args.paths || args.paths == ""){
+            console.error("Live Reload: invalid paths. can't start monitor")
             return
         }
 
-        console.log("Live Reload:", JSON.stringify(args))
+        if(args.debug)
+            console.log("Live Reload:", JSON.stringify(args))
 
 
-        var url = "ws://localhost:" +  args.port + "/ws?path=" +  args.path + "&exts=" +  args.exts
+        var url = "ws://localhost:" +  args.port + "/ws?paths=" +  args.paths + "&exts=" +  args.exts
 
         let liveReload = new WebSocket(url)
 

@@ -22,7 +22,8 @@ Add on page
     <script type="text/javascript" src="http://localhost:10101/js/livereload.js"></script>
     <script type="text/javascript">
         LiveReload.start({
-            path: "path/to/monitore"
+            paths: "/path/to/monitore,/other/path",
+            exts: "js,html,css"
         })          
     </script>
     
@@ -30,7 +31,7 @@ Add on page
 LiveReload args
 
     port: optional, default 10101
-    path: required
+    paths: required
     exts: optional, default *
     startTimeout: optional, default 1000 - First try after reaload event
     retryTimeout: optional, default 300 - Next try after reload event
