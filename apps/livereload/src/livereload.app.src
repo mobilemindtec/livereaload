@@ -1,0 +1,17 @@
+{application, livereload,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {livereload_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    cowboy,
+    sync    
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
